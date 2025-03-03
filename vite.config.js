@@ -1,7 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+	plugins: [react()],
+	build: { sourcemap: true },
+	resolve: {
+		alias: {
+			components: '/src/components',
+			data: '/src/data',
+			helpers: '/src/helpers',
+			styles: '/src/styles',
+		},
+	},
+});
